@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
-import { Pages } from './containers'
+import { Pages, ShowPage } from './containers'
 import {
   App,
   Home
@@ -15,7 +15,8 @@ export default () => {
       <div>
         <Route component={App} />
         <Route exact path="/" component={Home} />
-        <Route path="/pages" component={Pages} />
+        <Route exact path="/pages" component={Pages} />
+        <Route exact path="/pages/:id" component={ShowPage} />
       </div>
     </Router>
   )
