@@ -1,8 +1,12 @@
+const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
   devtool: 'eval',
   entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:8080',
+    'webpack/hot/only-dev-server',
     './theme/elements.scss',
     './index.js'
   ],
@@ -65,11 +69,16 @@ module.exports = {
     ]
   },
   devServer: {
+    hot: true,
+    inline: false,
     historyApiFallback: true,
     proxy: {
       '/api/*': {
         target: 'http://127.0.0.1:5000'
       }
     }
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };
