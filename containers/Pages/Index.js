@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Pages } from '../../components'
-import { loadPages } from '../../actions/page'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { loadPages } from '../../actions/page'
+import { Pages } from '../../components'
 
 class PagesContainer extends Component {
   static propTypes = {
@@ -31,21 +31,11 @@ class PagesContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = (state) => ({
     pages: state.pages
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onLoadPages: () => {
-      dispatch(loadPages())
-    }
-  }
-}
+})
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  { onLoadPages: loadPages }
 )(PagesContainer)

@@ -1,7 +1,7 @@
 const pages = (state = [], action) => {
   switch(action.type) {
-    case 'RECEIVE_PAGES':
-      return action.pages
+    case 'LOAD_PAGES_SUCCESS':
+      return action.payload
     default:
       return state
   }
