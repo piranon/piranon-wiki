@@ -10,7 +10,7 @@ export default class Header extends Component {
           <Link
             to={{ pathname: '/' }}
             className={styles['brand']}>
-            Babel Coder Wiki!
+            Piranon Wiki!
           </Link>
           <ul className={styles['menu']}>
             <li className={styles['menu__item']}>

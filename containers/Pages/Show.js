@@ -11,8 +11,7 @@ class ShowPageContainer extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    return true
-    return this.props.page !== nextProps.page;
+    return this.props.page !== nextProps.page
   }
 
   componentDidMount() {
@@ -29,11 +28,7 @@ class ShowPageContainer extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  page: state.pages[0] || { title: '', content: '' }
-})
-
 export default connect(
-  mapStateToProps,
+  (state) => ({ page: state.pages[0] || { title: '', content: '' } }),
   { onLoadPage: loadPage }
 )(ShowPageContainer)

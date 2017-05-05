@@ -31,11 +31,7 @@ class PagesContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-    pages: state.pages
-})
-
 export default connect(
-  mapStateToProps,
+  (state) => ({ pages: state.pages }),
   { onLoadPages: loadPages }
 )(PagesContainer)
