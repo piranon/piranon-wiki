@@ -7,7 +7,11 @@ import {
 
   LOAD_PAGE_REQUEST,
   LOAD_PAGE_SUCCESS,
-  LOAD_PAGE_FAILURE
+  LOAD_PAGE_FAILURE,
+
+  CREATE_PAGE_REQUEST,
+  CREATE_PAGE_SUCCESS,
+  CREATE_PAGE_FAILURE
 } from '../constants/actionTypes'
 
 export const loadPages = () => ({
@@ -23,5 +27,18 @@ export const loadPage = (id) => ({
     endpoint: `${PAGES_ENDPOINT}/${id}`,
     method: 'GET',
     types: [LOAD_PAGE_REQUEST, LOAD_PAGE_SUCCESS, LOAD_PAGE_FAILURE]
+  }
+})
+
+export const createPage = (values) => ({
+  [CALL_API]: {
+    endpoint: PAGES_ENDPOINT,
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify(values),
+    types: [CREATE_PAGE_REQUEST, CREATE_PAGE_SUCCESS, CREATE_PAGE_FAILURE]
   }
 })
