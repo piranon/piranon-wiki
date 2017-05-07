@@ -15,6 +15,13 @@ export default class Header extends Component {
           <ul className={styles['menu']}>
             <li className={styles['menu__item']}>
               <Link
+                to={{ pathname: '/pages/new' }}
+                className={styles['menu__link']}>
+                Create New Page
+              </Link>
+            </li>
+            <li className={styles['menu__item']}>
+              <Link
                 to={{ pathname: '/pages' }}
                 className={styles['menu__link']}>
                 All pages
