@@ -5,10 +5,10 @@ module.exports = {
   devtool: 'eval',
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:8080',
+    'webpack-dev-server/client?http://localhost:8081',
     'webpack/hot/only-dev-server',
-    './theme/elements.scss',
-    './index.js'
+    './common/theme/elements.scss',
+    './client/index.js'
   ],
   output: {
     filename: 'bundle.js',
@@ -71,12 +71,7 @@ module.exports = {
   devServer: {
     hot: true,
     inline: false,
-    historyApiFallback: true,
-    proxy: {
-      '/api/*': {
-        target: 'http://127.0.0.1:5000'
-      }
-    }
+    historyApiFallback: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
